@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: floating
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 12345678
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: 12345678
+      TZ: 'Asia/Seoul'
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/conf.d:/etc/mysql/conf.d # MySQL 설정 파일 위치
+    command:
+      - "mysqld"
+      - "--character-set-server=utf8mb4"
+      - "--collation-server=utf8mb4_unicode_ci"
+    networks:
+      - floating_network
+
+  backend:
+    container_name: backend
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/floating
+      SPRING_DATASOURCE_USERNAME: user     # MySQL 사용자 이름
+      SPRING_DATASOURCE_PASSWORD: 12345678 # MySQL 사용자 비밀번호
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    networks:
+      - floating_network
+
+networks:
+  floating_network:

@@ -53,7 +53,6 @@ build/
 .c9/
 
 # OS별 생성 파일
-.DS_Store
 Thumbs.db
 
 # 기타 설정 파일
@@ -63,36 +62,6 @@ Thumbs.db
 # Lombok 플러그인 파일
 .lombok.config
 
-# Docker 관련 파일
-**/Dockerfile
-**/docker-compose.yml
-
 # 기타 특정 환경에서의 파일들
 bin/
 out/
-
-# Java 관련 파일 무시
-*.class
-*.jar
-*.war
-*.ear
-
-# 로그 파일 무시
-*.log
-
-# Gradle 관련 파일 무시
-.gradle/
-!gradle/wrapper/gradle-wrapper.jar
-
-# 빌드 결과물 무시
-build/
-
-# IntelliJ IDEA 관련 파일 무시
-.idea/
-
-# OS별 생성 파일 무시
-.DS_Store
-Thumbs.db
-
-# 환경설정 파일 무시 (필요에 따라)
-.env
