@@ -49,3 +49,7 @@ test {
 	useJUnitPlatform()
 }
 
+test.onlyIf {
+	!project.hasProperty('test')
+}
+
