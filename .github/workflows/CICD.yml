@@ -25,13 +25,17 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-      # 환경 변수 파일 생성
-      
-    - name: Set environment values
+
+    # 1. .env 파일 생성 (여러 줄을 한번에 파일에 작성)
+    - name: Create .env file
       run: |
-        touch ./.env # .env 파일 생성
-        echo "${{ secrets.ENV }}" > ./.env # github actions secret에서 가져온 값을 application.yml 파일에 씁니다
-      shell: bash
+        cat <<EOF > .env
+        DB_URL=${{ secrets.DB_URL }}
+        DB_USERNAME=${{ secrets.DB_USERNAME }}
+        DB_PASSWORD=${{ secrets.DB_PASSWORD }}
+        OAUTH_CLIENT_ID=${{ secrets.OAUTH_CLIENT_ID }}
+        OAUTH_CLIENT_SECRET=${{ secrets.OAUTH_CLIENT_SECRET }}
+        EOF
 
     # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.
     # See: https://github.com/gradle/actions/blob/main/setup-gradle/README.md
