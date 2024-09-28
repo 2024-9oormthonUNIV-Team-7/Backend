@@ -41,7 +41,7 @@ public class SecurityConfig {
                         .requestMatchers("/users/**").permitAll()
                         .requestMatchers("/api/**").hasAuthority(Role.COMMON.getKey()))
                 .sessionManagement(session -> session
-                        // 세션을 사용하지 않겠다는 의미
+                        // 세션을 사용하지 않겠다는 의
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         http
                 .securityContext(AbstractHttpConfigurer::disable)   // 기본 로그인 폼 비활성화
