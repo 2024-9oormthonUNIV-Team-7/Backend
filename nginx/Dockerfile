@@ -5,8 +5,8 @@ FROM nginx:latest
 COPY ./nginx.conf /etc/nginx/nginx.conf
 
 # Copy SSL certificates (make sure these paths are correct)
-COPY /home/ec2-user/ssl/fullchain.pem /etc/ssl/certs/fullchain.pem
-COPY /home/ec2-user/ssl/privkey.pem /etc/ssl/private/privkey.pem
+COPY ../../ssl/fullchain.pem /etc/ssl/certs/fullchain.pem
+COPY ../../ssl/privkey.pem /etc/ssl/private/privkey.pem
 
 # Expose HTTP and HTTPS ports
 EXPOSE 80
