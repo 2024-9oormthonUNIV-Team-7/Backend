@@ -35,6 +35,7 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         jwtCookie.setSecure(true);    // HTTPS 환경에서만 전송 (배포 시)
         jwtCookie.setPath("/");       // 쿠키의 경로 설정
         jwtCookie.setMaxAge(60 * 60 * 24);  // 쿠키 유효 기간 설정 (예: 24시간)
+        jwtCookie.setSecure(false);
         response.addCookie(jwtCookie);
 
         String jwtCookieDomain = dotenv.get("JWT_COOKIE_DOMAIN");
