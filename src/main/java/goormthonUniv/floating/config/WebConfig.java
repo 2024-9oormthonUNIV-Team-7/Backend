@@ -13,10 +13,11 @@ public class WebConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:3000", "https://your-domain.com") // 명시적으로 도메인 설정
-                        .allowedMethods("GET", "POST", "PUT", "DELETE")
+                        .allowedOrigins("http://localhost:3000", "https://floating.site")  // 허용할 도메인
+                        .allowedMethods("*")
                         .allowedHeaders("*")
-                        .allowCredentials(true); // 쿠키 전송 허용
+                        .exposedHeaders("Authorization")  // Authorization 헤더 노출 허용
+                        .allowCredentials(true);  // 자격 증명 허용
             }
         };
     }

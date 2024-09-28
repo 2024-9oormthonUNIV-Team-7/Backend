@@ -27,6 +27,18 @@ spring:
           google:
             client-id: ${OAUTH_CLIENT_ID}
             client-secret: ${OAUTH_CLIENT_SECRET}
-            scope:
-              - profile
-              - email
+            redirect-uri: "http://localhost:8080/login/oauth2/code/google"
+            scope: email,profile
+        provider:
+          google:
+            authorization-uri: https://accounts.google.com/o/oauth2/auth
+            token-uri: https://oauth2.googleapis.com/token
+            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+            user-name-attribute: sub
+  jwt:
+    secret: ${JWT_SECRET:defaultSecretValue}  # 환경 변수 JWT_SECRET을 읽어오며, 없으면 기본값 사용
+    expiration: 1800000  # JWT 유효 기간 30분
+
+logging:
+  level:
+    org.springframework.security: DEBUG

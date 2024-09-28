@@ -17,6 +17,7 @@ public class FloatingApplication {
 		String dbPassword = dotenv.get("DB_PASSWORD");
 		String oauthClientId = dotenv.get("OAUTH_CLIENT_ID");
 		String oauthClientSecret = dotenv.get("OAUTH_CLIENT_SECRET");
+		String baseUrl = dotenv.get("BASE_URL");
 
 		// 환경 변수를 시스템에 설정 (필요한 경우)
 		System.setProperty("DB_URL", dbUrl);
@@ -24,6 +25,7 @@ public class FloatingApplication {
 		System.setProperty("DB_PASSWORD", dbPassword);
 		System.setProperty("OAUTH_CLIENT_ID", oauthClientId);
 		System.setProperty("OAUTH_CLIENT_SECRET", oauthClientSecret);
+		System.setProperty("BASE_URL", baseUrl);
 
 		SpringApplication.run(FloatingApplication.class, args);
 

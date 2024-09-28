@@ -35,6 +35,10 @@ jobs:
         DB_PASSWORD=${{ secrets.DB_PASSWORD }}
         OAUTH_CLIENT_ID=${{ secrets.OAUTH_CLIENT_ID }}
         OAUTH_CLIENT_SECRET=${{ secrets.OAUTH_CLIENT_SECRET }}
+        BASE_URL=${{ secrets.BASE_URL }}
+        JWT_SECRET=${{ secrets.JWT_SECRET }}
+        JWT_EXPIRATION=${{ secrets.JWT_EXPIRATION }}
+        REDIRECT_URL=${{ secrets.REDIRECT_URL }}
         EOF
 
     # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.

@@ -40,7 +40,7 @@ public class FavoriteService {
     private final BalanceGameRepository balanceGameRepository;  // 밸런스 게임 리포지토리
 
     public List<FavoriteResponse> getFavoritesByGoogleId(String googleId) {
-        Optional<User> user = userRepository.findBygoogleid(googleId);
+        Optional<User> user = userRepository.findByGoogleId(googleId);
         if (user.isEmpty()) {
             throw new UserNotFoundException("User not found for googleId: " + googleId);
         }
@@ -84,7 +84,7 @@ public class FavoriteService {
 
     @Transactional
     public void deleteFavoriteByGoogleIdAndItemId(String googleId, Long favoriteId){
-        Optional<User> user = userRepository.findBygoogleid(googleId);
+        Optional<User> user = userRepository.findByGoogleId(googleId);
         if (user.isPresent()) {
             // userId와 itemId로 즐겨찾기 항목을 조회
             Optional<Favorite> favorite = favoriteRepository.findById(favoriteId);
