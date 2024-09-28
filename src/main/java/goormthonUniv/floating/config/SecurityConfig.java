@@ -39,7 +39,7 @@ public class SecurityConfig {
                         .requestMatchers("/", "/error").permitAll()
                         .requestMatchers("/login/**").permitAll()
                         .requestMatchers("/users/**").permitAll()
-                        .requestMatchers("/api/**").hasAuthority(Role.COMMON.getKey()))
+                        .requestMatchers("/api/**").hasAnyAuthority(Role.COMMON.getKey(), Role.GUEST.getKey()))
                 .sessionManagement(session -> session
                         // 세션을 사용하지 않겠다는 의
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
