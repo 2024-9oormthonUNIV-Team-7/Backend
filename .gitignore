@@ -58,7 +58,6 @@ Thumbs.db
 # 기타 설정 파일
 .env
 !.gitkeep
-application.yml
 
 # Lombok 플러그인 파일
 .lombok.config
