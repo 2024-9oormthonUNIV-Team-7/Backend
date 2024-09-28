@@ -25,6 +25,13 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+      # 환경 변수 파일 생성
+      
+    - name: Set environment values
+      run: |
+        touch ./.env # .env 파일 생성
+        echo "${{ secrets.ENV }}" > ./.env # github actions secret에서 가져온 값을 application.yml 파일에 씁니다
+      shell: bash
 
     # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.
     # See: https://github.com/gradle/actions/blob/main/setup-gradle/README.md
