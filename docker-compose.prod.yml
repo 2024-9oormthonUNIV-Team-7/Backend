@@ -42,13 +42,15 @@ services:
   nginx:
     user: root
     container_name: nginx
-    image: nginx:latest
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf # Nginx 설정 파일
       - ../Frontend/build:/usr/share/nginx/html  # React 빌드된 정적 파일 위치
-      - /etc/letsencrypt/live/floating.site:/etc/letsencrypt/live/floating.site
     ports:
       - "80:80"
+      - "443:443"
     depends_on:
       - backend
     networks:
