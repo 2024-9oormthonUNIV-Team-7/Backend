@@ -34,6 +34,8 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/floating
       SPRING_DATASOURCE_USERNAME: user     # MySQL 사용자 이름
       SPRING_DATASOURCE_PASSWORD: 12345678 # MySQL 사용자 비밀번호
+    env_file:
+      - .env
     ports:
       - "8080:8080"
     depends_on:
