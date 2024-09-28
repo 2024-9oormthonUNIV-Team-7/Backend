@@ -10,12 +10,12 @@ import java.util.List;
 @Setter
 public class TalkSubjectResponse {
 
-    private List<TalkSubject> talkSubjects;
+    private List<TalkSubject> talkSubject;
     private int status;
     private String message;
 
     public TalkSubjectResponse(List<TalkSubject> talkSubjects, int status, String message) {
-        this.talkSubjects = talkSubjects;
+        this.talkSubject = talkSubjects;
         this.status = status;
         this.message = message;
     }

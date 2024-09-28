@@ -11,13 +11,13 @@ import java.util.List;
 @Setter
 public class BalanceGameResponse {
 
-    private List<BalanceGame> balanceGames;
+    private List<BalanceGame> balanceGame;
     private int status;
     private String message;
 
 
     public BalanceGameResponse(List<BalanceGame> balanceGames, int status, String message) {
-        this.balanceGames = balanceGames;
+        this.balanceGame = balanceGames;
         this.status = status;
         this.message = message;
     }

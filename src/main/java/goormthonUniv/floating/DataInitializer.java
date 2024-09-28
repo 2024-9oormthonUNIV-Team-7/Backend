@@ -62,7 +62,7 @@ public class DataInitializer implements CommandLineRunner {
 
         Favorite favorite4 = new Favorite();
         favorite4.setUser(user1);
-        favorite4.setCategory(FavoriteCategory.small_talk);
+        favorite4.setCategory(FavoriteCategory.talk_subject);
         favorite4.setItemId(5L);
         favorite4.setCreateTime(LocalDateTime.now());
 

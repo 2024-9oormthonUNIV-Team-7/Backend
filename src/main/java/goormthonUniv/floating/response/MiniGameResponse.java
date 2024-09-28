@@ -11,13 +11,13 @@ import java.util.List;
 @Setter
 public class MiniGameResponse {
 
-    private List<MiniGame> minigames;
+    private List<MiniGame> miniGame;
     private int status;
     private String message;
 
 
     public MiniGameResponse(List<MiniGame> minigames, int status, String message) {
-        this.minigames = minigames;
+        this.miniGame = minigames;
         this.status = status;
         this.message = message;
     }
