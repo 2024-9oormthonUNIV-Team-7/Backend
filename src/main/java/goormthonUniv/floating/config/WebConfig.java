@@ -13,7 +13,7 @@ public class WebConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:3000", "http://floating.site", "http://floating.site:3000","https://floating.site")  // 허용할 도메인
+                        .allowedOrigins("http://localhost:3000", "https://floating.site", "https://floating.site:3000")  // 허용할 도메인
                         .allowedMethods("*")
                         .allowedHeaders("*")
                         .exposedHeaders("Authorization")  // Authorization 헤더 노출 허용

@@ -32,10 +32,10 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         // JWT 토큰을 HttpOnly 쿠키로 설정
         Cookie jwtCookie = new Cookie("jwtToken", token);
         jwtCookie.setHttpOnly(true);  // 브라우저 자바스크립트에서 접근 불가
-        jwtCookie.setSecure(true);    // HTTPS 환경에서만 전송 (배포 시)
+        boolean isSecure = Boolean.parseBoolean(dotenv.get("JWT_COOKIE_SECURE"));
+        jwtCookie.setSecure(isSecure);    // HTTPS 환경에서만 전송 (배포 시)
         jwtCookie.setPath("/");       // 쿠키의 경로 설정
         jwtCookie.setMaxAge(60 * 60 * 24);  // 쿠키 유효 기간 설정 (예: 24시간)
-        jwtCookie.setSecure(false);
         response.addCookie(jwtCookie);
         // SameSite=None; 설정 추가
         response.setHeader("Set-Cookie", String.format("jwtToken=%s; Max-Age=%d; Path=/; Secure; HttpOnly; SameSite=None", token, 60 * 60 * 24));

@@ -36,7 +36,7 @@ public class SecurityConfig {
                 .cors(withDefaults())  // CORS 설정 활성화
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
-                        .requestMatchers("/").permitAll()
+                        .requestMatchers("/", "/error").permitAll()
                         .requestMatchers("/login/**").permitAll()
                         .requestMatchers("/users/**").permitAll()
                         .requestMatchers("/api/**").hasAuthority(Role.COMMON.getKey()))
@@ -52,7 +52,8 @@ public class SecurityConfig {
                         .successHandler(oAuth2AuthenticationSuccessHandler)
                         .failureHandler(oAuth2AuthenticationFailureHandler)
                 );
-
+        http
+                .csrf(AbstractHttpConfigurer::disable);
 
         // 필터 적용
         http.addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);

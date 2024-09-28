@@ -62,7 +62,7 @@ public class FavoriteService {
                     response.setName(miniGame.getName());
                     response.setDescription(miniGame.getDescription());
                 }
-                case small_talk -> {
+                case talk_subject -> {
                     TalkSubject talkSubject = talkSubjectRepository.findById(favorite.getItemId())
                             .orElseThrow(() -> new RuntimeException("토크 주제 데이터를 찾을 수 없습니다."));
                     response.setSubject(talkSubject.getSubject());

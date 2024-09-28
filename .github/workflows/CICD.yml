@@ -40,6 +40,7 @@ jobs:
         JWT_EXPIRATION=${{ secrets.JWT_EXPIRATION }}
         REDIRECT_URL=${{ secrets.REDIRECT_URL }}
         JWT_COOKIE_DOMAIN=${{ secrets.JWT_COOKIE_DOMAIN }}
+        JWT_COOKIE_SECURE=${{ secrets.JWT_COOKIE_SECURE }}
         EOF
 
     # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.
