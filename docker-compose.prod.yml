@@ -40,6 +40,7 @@ services:
     networks:
       - floating_network
   nginx:
+    user: root
     container_name: nginx
     image: nginx:latest
     volumes:
