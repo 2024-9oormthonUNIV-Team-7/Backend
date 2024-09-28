@@ -1,5 +1,6 @@
 package goormthonUniv.floating.controller;
 
+import exception.SeverErrorException;
 import goormthonUniv.floating.domain.Category;
 import goormthonUniv.floating.domain.TalkSubject;
 import goormthonUniv.floating.repository.TalkSubjectRepository;
@@ -21,6 +22,9 @@ public class TalkSubjectApiController {
     public ResponseEntity<TalkSubjectResponse> getAllTalkSubjects() {
 
         List<TalkSubject> talkSubjects = talkSubjectRepository.findAll();
+        if (talkSubjects.isEmpty()){
+            throw new SeverErrorException("스몰 토크 리스트를 불러 올 수 없습니다.");
+        }
         TalkSubjectResponse response = new TalkSubjectResponse(talkSubjects, 200, "스몰 토크 전체 조회 성공");
         return ResponseEntity.ok(response);
 
