@@ -9,7 +9,7 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ "main" ]
 
 jobs:
   ci:
@@ -50,25 +50,32 @@ jobs:
       run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/groomthon-univ
 
   cd:
-    # build-docker-image (위)과정이 완료되어야 실행됩니다.
     needs: ci
     runs-on: self-hosted
-
+  
     steps:
-      # 1. 최신 이미지를 풀받습니다
-      - name: docker pull
-        run: sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/groomthon-univ
-      
-      # 2. 기존의 컨테이너를 중지시킵니다
-      - name: docker stop container
+      # 1. 기존의 컨테이너를 중지시킵니다
+      - name: Stop existing containers
         run: sudo docker stop $(sudo docker ps -q) 2>/dev/null || true
-
-      # 3. 최신 이미지를 컨테이너화하여 실행시킵니다
-      - name: docker run new container
-        run: sudo docker run --name groomthon-univ --rm -d -p 8080:8080 ${{ secrets.DOCKERHUB_USERNAME }}/groomthon-univ
-
-      # 4. 미사용 이미지를 정리합니다
-      - name: delete old docker image
+  
+      # 2. 기존의 컨테이너를 제거합니다
+      - name: Remove existing containers
+        run: sudo docker rm $(sudo docker ps -a -q) 2>/dev/null || true
+  
+      # 3. 기존의 이미지를 제거합니다
+      - name: Remove existing images
+        run: sudo docker rmi $(sudo docker images -q) 2>/dev/null || true
+  
+      # 4. 사용하지 않는 볼륨을 제거합니다
+      - name: Remove unused volumes
+        run: sudo docker volume prune -f
+  
+      # 5. 최신 이미지를 컨테이너화하여 실행시킵니다
+      - name: Run new containers with docker-compose
+        run: sudo docker-compose -f docker-compose.prod.yml up --build -d
+  
+      # 6. 미사용 이미지를 정리합니다
+      - name: Delete old docker images and resources
         run: sudo docker system prune -f
   # dependency-submission:
 
