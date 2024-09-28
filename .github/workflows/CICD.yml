@@ -72,6 +72,7 @@ jobs:
   
       # 5. 최신 이미지를 컨테이너화하여 실행시킵니다
       - name: Run new containers with docker-compose
+        working-directory: ./Backend
         run: sudo docker-compose -f docker-compose.prod.yml up --build -d
   
       # 6. 미사용 이미지를 정리합니다
