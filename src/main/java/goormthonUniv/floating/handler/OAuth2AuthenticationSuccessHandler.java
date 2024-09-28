@@ -37,6 +37,9 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
         jwtCookie.setMaxAge(60 * 60 * 24);  // 쿠키 유효 기간 설정 (예: 24시간)
         response.addCookie(jwtCookie);
 
+        String jwtCookieDomain = dotenv.get("JWT_COOKIE_DOMAIN");
+        jwtCookie.setDomain(jwtCookieDomain);
+
         // .env 파일에서 리다이렉트 URL 가져오기
         String redirectUrl = dotenv.get("REDIRECT_URL");
         response.sendRedirect(redirectUrl);
