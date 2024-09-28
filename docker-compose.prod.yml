@@ -21,6 +21,11 @@ services:
       - "--collation-server=utf8mb4_unicode_ci"
     networks:
       - floating_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   backend:
     container_name: backend
@@ -32,7 +37,8 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy
     networks:
       - floating_network
 
