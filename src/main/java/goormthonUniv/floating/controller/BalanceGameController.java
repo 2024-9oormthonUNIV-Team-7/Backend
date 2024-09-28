@@ -23,6 +23,10 @@ public class BalanceGameController {
     public ResponseEntity<BalanceGameResponse> getAllBalanceGames(){
         List<BalanceGame> balanceGames = balanceGameRepository.findAll();
 
+        if (balanceGames.isEmpty()){
+            throw new SeverErrorException("벨런스 게임 리스트를 불러올 수 없습니다.");
+        }
+
         BalanceGameResponse response = new BalanceGameResponse(balanceGames, 200, "밸런스 게임 전체 조회 성공");
         return ResponseEntity.ok(response);
 
