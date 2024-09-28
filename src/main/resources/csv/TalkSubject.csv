@@ -1,0 +1,21 @@
+subject,description,category
+학교 / 학년 / 학과,ex) 무슨 학과야? 몇학년이야?,first_meeting
+나이 / 생일,ex) 몇살이세요? 생일 언제야?,first_meeting
+MBTI,ex) mbti가 뭐야?,first_meeting
+사는 곳,ex) 어디 살아? 기숙사/자취/통학,first_meeting
+회의 시간,ex) 언제 시간 돼?,time_tuning
+시간표,ex) 공강이 언제야?,time_tuning
+아르바이트,ex) 지금 알바해? 무슨 알바해?,time_tuning
+학교 생활,ex) 몇학점 들어? 무슨 수업 들어? 공강 언제야? 동아리 활동하는거
+동아리 활동,ex) 무슨 동아리 하고 있어?,small_talk
+sns,ex) 인스타해? 맞팔하자!,small_talk
+가족 구성,ex) 형제자매 있어?,small_talk
+연애,"ex) 지금 연애해? 어떻게 만났어? 최근 연애가 언제야? 연하, 동갑, 연상
+이상형,ex) 이상형이 어떻게 돼? 좋아하는 스타일이 뭐야?,small_talk
+영화 또는 드라마,"ex) 요즘 보는 드라마 있어? 무슨 영화 좋아해? 좋아하는 영
+좋아하는 유튜브,ex) 유튜브 자주 봐? 좋아하는 채널 추천해줘!,small_talk
+"좋아하는 노래, 가수",ex)좋아하는 가수 있어?,small_talk
+좋아하는 음식,ex)제일 좋아하는 음식이 뭐야?,small_talk
+날씨 / 계절,ex)오늘 날씨 너무 좋지 않아? 좋아하는 계절이 뭐야?,small_talk
+관심사,ex) 요즘 관심사가 뭐야?,small_talk
+취미,ex) 쉬는 날에 주로 뭐해? 취미 있어?,small_talk
