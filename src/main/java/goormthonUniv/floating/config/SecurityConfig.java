@@ -40,7 +40,6 @@ public class SecurityConfig {
                         .requestMatchers("/login/**").permitAll()
                         .requestMatchers("/users/**").permitAll()
                         .requestMatchers("/api/**").hasAuthority(Role.COMMON.getKey()))
-                // 세션 사용 설정
                 .sessionManagement(session -> session
                         // 세션을 사용하지 않겠다는 의미
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
