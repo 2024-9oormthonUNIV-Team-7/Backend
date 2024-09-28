@@ -34,6 +34,9 @@ dependencies {
 	// Swagger Core와 호환되는 버전 사용
 	implementation 'io.swagger.core.v3:swagger-core-jakarta:2.2.10' // Swagger Core 버전을 최신으로 변경
 
+	//csv 연동
+	implementation 'com.opencsv:opencsv:5.5.2'
+
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
