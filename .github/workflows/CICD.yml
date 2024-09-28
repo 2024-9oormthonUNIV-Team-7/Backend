@@ -69,13 +69,18 @@ jobs:
       # 4. 사용하지 않는 볼륨을 제거합니다
       - name: Remove unused volumes
         run: sudo docker volume prune -f
-  
-      # 5. 최신 이미지를 컨테이너화하여 실행시킵니다
+
+      # 5. Git 최신 상태로 업데이트 (git pull)
+      - name: Pull latest changes
+        run: |
+          cd /home/ec2-user/Backend
+          git pull origin main
+          
+      # 6. 최신 이미지를 컨테이너화하여 실행시킵니다
       - name: Run new containers with docker-compose
-        working-directory: ./Backend
-        run: sudo docker-compose -f docker-compose.prod.yml up --build -d
+        run: sudo docker-compose -f /home/ec2-user/Backend/docker-compose.prod.yml up --build -d
   
-      # 6. 미사용 이미지를 정리합니다
+      # 7. 미사용 이미지를 정리합니다
       - name: Delete old docker images and resources
         run: sudo docker system prune -f
   # dependency-submission:
