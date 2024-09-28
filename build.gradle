@@ -20,14 +20,15 @@ configurations {
 }
 
 repositories {
-	mavenCentral()
+	mavenCentral() // 기존 Maven Central 저장소
+	maven { url 'https://jitpack.io' } // JitPack 저장소 추가
 }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'mysql:mysql-connector-java:8.0.33'
-	implementation 'io.github.cdimascio:dotenv-spring-boot:2.3.0'
+	implementation 'com.github.cdimascio:dotenv-spring-boot:2.2.0'
 	// SpringDoc OpenAPI 의존성
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
 
