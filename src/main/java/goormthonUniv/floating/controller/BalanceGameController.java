@@ -29,7 +29,6 @@ public class BalanceGameController {
 
         BalanceGameResponse response = new BalanceGameResponse(balanceGames, 200, "밸런스 게임 전체 조회 성공");
         return ResponseEntity.ok(response);
-
-
     }
+
 }
