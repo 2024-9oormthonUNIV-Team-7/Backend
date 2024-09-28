@@ -29,7 +29,7 @@ public class CSVDataLoader implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         System.out.println("CSVDataLoader is running...");
-        try(Reader reader = new InputStreamReader(new ClassPathResource("BalanceGame.csv").getInputStream());
+        try(Reader reader = new InputStreamReader(new ClassPathResource("csv/BalanceGame.csv").getInputStream());
                 CSVReader csvReader = new CSVReader(reader)){
 
             String[] line;
@@ -43,7 +43,7 @@ public class CSVDataLoader implements CommandLineRunner {
                 balanceGameRepository.save(balanceGame);
             }
         }
-        try(Reader reader = new InputStreamReader(new ClassPathResource("TalkSubject.csv").getInputStream());
+        try(Reader reader = new InputStreamReader(new ClassPathResource("csv/TalkSubject.csv").getInputStream());
                 CSVReader csvReader = new CSVReader(reader)){
 
             String[] line;
@@ -62,7 +62,7 @@ public class CSVDataLoader implements CommandLineRunner {
 
             }
         }
-        try(Reader reader = new InputStreamReader(new ClassPathResource("MiniGame.csv").getInputStream());
+        try(Reader reader = new InputStreamReader(new ClassPathResource("csv/MiniGame.csv").getInputStream());
                 CSVReader csvReader = new CSVReader(reader)){
 
             String[] line;
