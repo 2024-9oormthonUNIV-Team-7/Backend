@@ -24,7 +24,7 @@ public class BalanceGameController {
         balanceGameRepository.save(balanceGame);
         List<BalanceGame> balanceGames = balanceGameRepository.findAll();
 
-        BalanceGameResponse response = new BalanceGameResponse(balanceGames, 200, "스몰 토크 전체 조회 성공");
+        BalanceGameResponse response = new BalanceGameResponse(balanceGames, 200, "밸런스 게임 전체 조회 성공");
         return ResponseEntity.ok(response);
 
     }
