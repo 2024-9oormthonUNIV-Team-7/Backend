@@ -31,7 +31,7 @@ spring:
             scope: email,profile
   jwt:
     secret: ${JWT_SECRET:defaultSecretValue}  # 환경 변수 JWT_SECRET을 읽어오며, 없으면 기본값 사용
-    expiration: 1800000  # JWT 유효기간 30분
+    expiration: 1800000  # JWT 유효기간 30분a
 
 logging:
   level:
