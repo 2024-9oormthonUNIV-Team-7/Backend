@@ -27,7 +27,7 @@ spring:
           google:
             client-id: ${OAUTH_CLIENT_ID}
             client-secret: ${OAUTH_CLIENT_SECRET}
-            redirect-uri: "http://localhost:3000/plans/login/oauth2/code/google"
+            redirect-uri: "https://floating.site/login/oauth2/code/google"
             scope: email,profile
   jwt:
     secret: ${JWT_SECRET:defaultSecretValue}  # 환경 변수 JWT_SECRET을 읽어오며, 없으면 기본값 사용
